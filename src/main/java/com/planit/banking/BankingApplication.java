@@ -23,10 +23,10 @@ public class BankingApplication implements CommandLineRunner {
 
 	@Autowired
 	JdbcTemplate jdbcTemplate;
-	/*
+
 	@Override
 	public void run(String... strings) throws Exception {
-
+        /*
 		log.info("Populating tables");
 
 		List<Object[]> splitUpNames = Arrays.asList(
@@ -42,6 +42,7 @@ public class BankingApplication implements CommandLineRunner {
 
 		jdbcTemplate.batchUpdate("INSERT INTO customers(cust_first_name, cust_last_name, cust_nationality, cust_occupation) VALUES (?,?,?,?)", splitUpNames);
 
+	    */
 		log.info("Querying for customer records where first_name = 'Josh':");
 		jdbcTemplate.query(
 				"SELECT cust_id, cust_first_name, cust_last_name, cust_nationality, cust_occupation FROM customers WHERE cust_first_name = ?", new Object[] { "Josh" },
@@ -56,5 +57,4 @@ public class BankingApplication implements CommandLineRunner {
 		).forEach(customer -> log.info(customer.toString()));
 
 	}
-	*/
 }
